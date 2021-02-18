@@ -1,4 +1,4 @@
-package ru.job4j.oop;
+package ru.job4j.oop.profession;
 
 public class Profession {
     private String name;
@@ -11,9 +11,6 @@ public class Profession {
         this.surname = surname;
         this.education = education;
         this.birthday = birthday;
-    }
-
-    public Profession() {
     }
 
     public String getName() {

@@ -1,4 +1,4 @@
-package ru.job4j.oop;
+package ru.job4j.oop.profession;
 
 public class Builder extends Engineer {
     private boolean helmet;
@@ -7,13 +7,6 @@ public class Builder extends Engineer {
                    String surname, String education, String birthday) {
         super(glasses, name, surname, education, birthday);
         this.helmet = helmet;
-    }
-
-    public Builder(boolean helmet) {
-        this.helmet = helmet;
-    }
-
-    public Builder() {
     }
 
     private void build() {

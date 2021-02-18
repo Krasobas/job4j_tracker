@@ -1,4 +1,4 @@
-package ru.job4j.oop;
+package ru.job4j.oop.profession;
 
 public class Dentist extends Doctor {
     private int[] drills;
@@ -9,14 +9,6 @@ public class Dentist extends Doctor {
         super(coat, name, surname, education, birthday);
         this.drills = drills;
         this.anaesthetic = anaesthetic;
-    }
-
-    public Dentist(int[] drills, int anaesthetic) {
-        this.drills = drills;
-        this.anaesthetic = anaesthetic;
-    }
-
-    public Dentist() {
     }
 
     public void startDrill() {

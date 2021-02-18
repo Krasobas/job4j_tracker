@@ -1,4 +1,4 @@
-package ru.job4j.oop;
+package ru.job4j.oop.profession;
 
 public class Surgeon extends Doctor {
     private int[] scalpels;
@@ -7,13 +7,6 @@ public class Surgeon extends Doctor {
                    String name, String surname, String education, String birthday) {
         super(coat, name, surname, education, birthday);
         this.scalpels = scalpels;
-    }
-
-    public Surgeon(int[] scalpels) {
-        this.scalpels = scalpels;
-    }
-
-    public Surgeon() {
     }
 
     private void cut() {

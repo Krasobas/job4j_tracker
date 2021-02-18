@@ -1,4 +1,4 @@
-package ru.job4j.oop;
+package ru.job4j.oop.profession;
 
 public class Programmer extends Engineer {
     private int tasks;
@@ -9,14 +9,6 @@ public class Programmer extends Engineer {
         super(glasses, name, surname, education, birthday);
         this.tasks = tasks;
         this.computer = computer;
-    }
-
-    public Programmer(int tasks, String computer) {
-        this.tasks = tasks;
-        this.computer = computer;
-    }
-
-    public Programmer() {
     }
 
     private void writeCode() {
