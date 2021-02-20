@@ -30,6 +30,18 @@ public class TrackerTest {
     }
 
     @Test
+    public void whenReplaceFalse() {
+        Tracker tracker = new Tracker();
+        Item bug = new Item();
+        bug.setName("Bug");
+        tracker.add(bug);
+        int id = -1;
+        Item bugWithDesc = new Item();
+        bugWithDesc.setName("Bug with description");
+        assertThat(tracker.replace(id, bugWithDesc), is(false));
+    }
+
+    @Test
     public void whenDelete() {
         Tracker tracker = new Tracker();
         Item bug = new Item();
@@ -38,5 +50,15 @@ public class TrackerTest {
         int id = bug.getId();
         tracker.delete(id);
         assertThat(tracker.findById(id), is(nullValue()));
+    }
+
+    @Test
+    public void whenDeleteFalse() {
+        Tracker tracker = new Tracker();
+        Item bug = new Item();
+        bug.setName("Bug");
+        tracker.add(bug);
+        int id = -1;
+        assertThat(tracker.delete(id), is(false));
     }
 }
