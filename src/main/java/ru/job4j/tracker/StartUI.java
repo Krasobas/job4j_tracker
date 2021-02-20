@@ -31,6 +31,7 @@ public class StartUI {
         for (Item name : names) {
             System.out.println("Id: " + name.getId() + " Name: " + name.getName());
         }
-
+        System.out.println("Print items:");
+        System.out.println(first + "\n" + second + "\n" + third);
     }
 }
