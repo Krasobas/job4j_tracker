@@ -9,8 +9,9 @@ public class MagicBall {
         String question;
         String[] answers = {"Yes!", "No!", "Maybe."};
         int random = new Random().nextInt(3);
-        System.out.println("Hello, I'm a Great Oracle! What would you like to know?\n"
-                + "Please, enter a yes/no question:\n");
+        System.out.println("Hello, I'm a Great Oracle! What would you like to know?"
+                + System.lineSeparator() + "Please, enter a yes/no question:"
+                + System.lineSeparator());
         question = input.nextLine();
         System.out.println(answers[random]);
     }
