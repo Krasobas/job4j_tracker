@@ -52,7 +52,7 @@ public class StartUI {
                 System.out.print("Enter Id of Item you would like to find: ");
                 int id = Integer.valueOf(scanner.nextLine());
                 Item item = tracker.findById(id);
-                if (item instanceof Item) {
+                if (item != null) {
                     System.out.println(item);
                 } else {
                     System.out.println("There is no any Item with this Id in the Tracker.");
