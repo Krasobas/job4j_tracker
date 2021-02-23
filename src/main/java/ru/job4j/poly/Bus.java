@@ -1,6 +1,6 @@
 package ru.job4j.poly;
 
-public class Bus implements Transport {
+public class Bus implements Transport, Vehicle {
     private String[] stops = {"School", "Hospital", "University", "Library", "City center"};
     private int passengers = 0;
     private int count = 0;
@@ -38,5 +38,15 @@ public class Bus implements Transport {
     public int fillUp(int gas) {
         this.gas = gas;
         return gas * 50;
+    }
+
+    @Override
+    public void move() {
+        System.out.println("Поехали!");
+    }
+
+    @Override
+    public void stop() {
+        System.out.println("Приехали!");
     }
 }
