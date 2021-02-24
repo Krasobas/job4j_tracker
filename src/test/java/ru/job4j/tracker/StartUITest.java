@@ -13,7 +13,7 @@ public class StartUITest {
         String[] questions = {"Study Java", "1"};
         Input input = new StubInput(questions);
         Tracker tracker = new Tracker();
-        StartUI.createItem(input, tracker);
+        new CreateAction().execute(input, tracker);
         Item created = tracker.findAll()[0];
         Item expected = new Item(questions[0]);
         assertThat(created.getName(), is(expected.getName()));
@@ -24,8 +24,8 @@ public class StartUITest {
         String[] questions = {"Study Java", "1", "Study programming"};
         Input input = new StubInput(questions);
         Tracker tracker = new Tracker();
-        StartUI.createItem(input, tracker);
-        StartUI.replaceItem(input, tracker);
+        new CreateAction().execute(input, tracker);
+        new ReplaceAction().execute(input, tracker);
         Item replaced = tracker.findById(1);
         Item expected = new Item(questions[2]);
         assertThat(replaced.getName(), is(expected.getName()));
@@ -37,7 +37,7 @@ public class StartUITest {
         Tracker tracker = new Tracker();
         tracker.add(item);
         String[] answers = {String.valueOf(item.getId()), "replaced Item"};
-        StartUI.replaceItem(new StubInput(answers), tracker);
+        new ReplaceAction().execute(new StubInput(answers), tracker);
         Item replaced = tracker.findById(item.getId());
         assertThat(replaced.getName(), is(answers[1]));
     }
@@ -47,8 +47,8 @@ public class StartUITest {
         String[] questions = {"Study Java", "1"};
         Input input = new StubInput(questions);
         Tracker tracker = new Tracker();
-        StartUI.createItem(input, tracker);
-        StartUI.deleteItem(input, tracker);
+        new CreateAction().execute(input, tracker);
+        new DeleteAction().execute(input, tracker);
         Item[] deleted = tracker.findAll();
         Item[] expected = new Item[0];
         assertThat(deleted.length, is(expected.length));
@@ -60,7 +60,7 @@ public class StartUITest {
         Tracker tracker = new Tracker();
         tracker.add(item);
         String[] answers = {String.valueOf(item.getId())};
-        StartUI.deleteItem(new StubInput(answers), tracker);
+        new DeleteAction().execute(new StubInput(answers), tracker);
         Item deleted = tracker.findById(item.getId());
         assertThat(deleted, is(nullValue()));
 
