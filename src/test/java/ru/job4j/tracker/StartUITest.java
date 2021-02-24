@@ -59,7 +59,7 @@ public class StartUITest {
         Item item = new Item();
         Tracker tracker = new Tracker();
         tracker.add(item);
-        String[] answers = {String.valueOf(item.getId()), "deleted"};
+        String[] answers = {String.valueOf(item.getId())};
         StartUI.deleteItem(new StubInput(answers), tracker);
         Item deleted = tracker.findById(item.getId());
         assertThat(deleted, is(nullValue()));
