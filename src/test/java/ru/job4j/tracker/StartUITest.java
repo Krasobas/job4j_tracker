@@ -64,7 +64,7 @@ public class StartUITest {
         Output out = new StubOutput();
         Tracker tracker = new Tracker();
         Item item = tracker.add(new Item("An item"));
-        String console = "Menu." + System.lineSeparator()
+        String expected = "Menu." + System.lineSeparator()
                 + "0. Show all items" + System.lineSeparator()
                 + "1. Exit Program" + System.lineSeparator()
                 + "=== All Items of the Tracker ====" + System.lineSeparator()
@@ -81,7 +81,7 @@ public class StartUITest {
                 new ExitAction(out)
         };
         new StartUI(out).init(in, tracker, actions);
-        assertThat(out.toString(), is(console));
+        assertThat(out.toString(), is(expected));
     }
 
     @Test
@@ -89,7 +89,7 @@ public class StartUITest {
         Output out = new StubOutput();
         Tracker tracker = new Tracker();
         Item item = tracker.add(new Item("An item"));
-        String console = "Menu." + System.lineSeparator()
+        String expected = "Menu." + System.lineSeparator()
                 + "0. Find item by Id" + System.lineSeparator()
                 + "1. Exit Program" + System.lineSeparator()
                 + "=== Find item by Id ====" + System.lineSeparator()
@@ -106,7 +106,7 @@ public class StartUITest {
                 new ExitAction(out)
         };
         new StartUI(out).init(in, tracker, actions);
-        assertThat(out.toString(), is(console));
+        assertThat(out.toString(), is(expected));
     }
 
     @Test
@@ -114,7 +114,7 @@ public class StartUITest {
         Output out = new StubOutput();
         Tracker tracker = new Tracker();
         Item item = tracker.add(new Item("An item"));
-        String console = "Menu." + System.lineSeparator()
+        String expected = "Menu." + System.lineSeparator()
                 + "0. Find items by name" + System.lineSeparator()
                 + "1. Exit Program" + System.lineSeparator()
                 + "=== Find items by name ====" + System.lineSeparator()
@@ -131,6 +131,23 @@ public class StartUITest {
                 new ExitAction(out)
         };
         new StartUI(out).init(in, tracker, actions);
-        assertThat(out.toString(), is(console));
+        assertThat(out.toString(), is(expected));
+    }
+
+    @Test
+    public void whenInvalidExit() {
+        Output out = new StubOutput();
+        Tracker tracker = new Tracker();
+        UserAction[] actions = {new ExitAction(out)};
+        Input input = new StubInput(new String[] {"1", "0"});
+        String expected = "Menu." + System.lineSeparator()
+                + "0. Exit Program" + System.lineSeparator()
+                + "Wrong input, you can select: 0 .. " + (actions.length - 1)
+                + System.lineSeparator()
+                + "Menu." + System.lineSeparator()
+                + "0. Exit Program" + System.lineSeparator()
+                + "=== Goodbye! ====" + System.lineSeparator();
+        new StartUI(out).init(input, tracker, actions);
+        assertThat(out.toString(), is(expected));
     }
 }
