@@ -29,7 +29,7 @@ public class StartUI {
 
     public static void main(String[] args) {
         Output out = new ConsoleOutput();
-        Input input = new ValidateInput(out);
+        Input input = new ValidateInput(new ConsoleInput(out), out);
         Tracker tracker = new Tracker();
         UserAction[] actions = {
                 new CreateAction(out),
